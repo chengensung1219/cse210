@@ -6,7 +6,7 @@ class Program
         
         Journal journal = new Journal();
 
-        Console.WriteLine("Welcome to the Journal Program!");
+        Console.WriteLine("Welcome to the Journal Program!\n");
 
         List<string> menu = ["Write", "Display", "Load", "Save", "Quit"];
 
