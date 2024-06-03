@@ -4,6 +4,8 @@ class Memorize{
 
     private List<string> oldReferences = new List<string>();
 
+    private List<string> newReferences = new List<string>();
+
     private List<string> scriptures = new List<string>();
 
     private List<string> references = new List<string>(); 
@@ -23,13 +25,13 @@ class Memorize{
         {   
             string newLine = line.Replace("\"", "");
             string[] splitNewLine = newLine.Split("|");
-            oldReferences.Add(splitNewLine[0]);
+            newReferences.Add(splitNewLine[0]);
             scriptures.Add(splitNewLine[1]);
         }
     }
 
-    public void ModifiedReference(List<string> oldReferences){
-        foreach (string item in oldReferences) {
+    public void ModifiedReference(List<string> newReferences){
+        foreach (string item in newReferences) {
             string firstModified = item.Replace(' ', ',');
             string secondModified = firstModified.Replace(':', ',');
             string finalModified = secondModified.Replace('-', ',');
@@ -40,14 +42,14 @@ class Memorize{
     public void MemorizeScripture(){
 
         
-        for (int i = 0; i < oldReferences.Count; i++){
+        for (int i = 0; i < newReferences.Count; i++){
 
-            Console.WriteLine($"\n{i + 1}. {oldReferences[i]}");
+            Console.WriteLine($"\n{i + 1}. {newReferences[i]}");
         }
         Console.Write("\nWhich scripture would you like to choose? ");
         string choice = Console.ReadLine();
 
-        ModifiedReference(oldReferences);
+        ModifiedReference(newReferences);
 
         if (choice == "1") {
             this.content = this.scriptures[0];
@@ -126,6 +128,7 @@ class Memorize{
             string[] splitNewLine = newLine.Split("|");
             oldReferences.Add(splitNewLine[0]);
             scriptures.Add(splitNewLine[1]);
+            newReferences = oldReferences;
         }
     }
 
