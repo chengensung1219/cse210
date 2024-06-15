@@ -19,7 +19,7 @@ class Listing : Activity {
     private List<string> inputHistroy = new List<string>();
 
     private List<string> history = new List<string>();
-    public override async void Run()
+    public override void Run()
     {   
         SetPrompts(listingPrompts);
 
