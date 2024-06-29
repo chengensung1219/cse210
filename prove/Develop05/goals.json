@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "Simon",
+    "Description": "too bad",
+    "Points": -10,
+    "IsComplete": false,
+    "Type": "Negative",
+    "RequiredCount": 0,
+    "CurrentCount": 0,
+    "ExtraBonus": 0
+  }
+]

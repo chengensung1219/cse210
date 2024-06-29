@@ -20,6 +20,7 @@ class SettingGoal
         "Simple Goal",
         "Eternal Goal",
         "Checklist Goal",
+        "Negative Goals",
         "Back to Menu"
     };
 
@@ -48,6 +49,9 @@ class SettingGoal
                 CreateChecklistGoal();
                 break;
             case 4:
+                CreateNegativeGoal();
+                break;
+            case 5:
                 break;
             default:
                 Console.WriteLine("Invalid option please try again.");
@@ -79,6 +83,10 @@ class SettingGoal
                     int bonus = goal.ExtraBonus;
                     totalpoints += bonus;
                 }
+            }
+            if (goal.Type == "Negative" && goal.CurrentCount > 0){
+                int minuspoint = goal.Points * goal.CurrentCount;
+                totalpoints += minuspoint;
             }
         }
         return totalpoints;
@@ -138,6 +146,22 @@ class SettingGoal
         type = "Checklist";
         goals.Add(new ChecklistGoal(name, description, points, isComplete, type, requiredcount, currentcount, extrabonus));
     }
+    public void CreateNegativeGoal()
+    {
+        Console.Write("What is the name of your goal? ");
+        name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        description = Console.ReadLine();
+        Console.Write("If you break or do this goal, how many points will be deducted? [Not include the minus sign] ");
+        points = 0 - int.Parse(Console.ReadLine());
+
+        currentcount = 0;
+
+        isComplete = false;
+
+        type = "Negative";
+        goals.Add(new NegativeGoal(name, description, points, isComplete, type));
+    }
 
     public void DisplayGoals(){
 
@@ -156,6 +180,10 @@ class SettingGoal
             } else if (goal.Type == "Eternal") {
 
                 Console.WriteLine($"{i + 1}. [∞] {goal.Name} ({goal.Description})");
+
+            } else if (goal.Type == "Negative") {
+
+                Console.WriteLine($"{i + 1}. [-] {goal.Name} ({goal.Description})");
 
             } else{
 
@@ -226,7 +254,10 @@ class SettingGoal
                 Console.WriteLine($"Congratulations! You have earned {accomplishGoal.Points} point.");
                 accomplishGoal.CurrentCount += 1;
 
-            } else {
+            } else if (accomplishGoal.Type == "Negative"){
+                Console.WriteLine($"Sorry! You have lost {0 - accomplishGoal.Points} point.");
+                accomplishGoal.CurrentCount += 1;
+            }else {
                 accomplishGoal.Complete();
                 Console.WriteLine($"Congratulations! You have earned {accomplishGoal.Points} point.");
                 notCompleteGoal.RemoveAt(accomplishNum);
@@ -299,6 +330,8 @@ class SettingGoal
                     return jo.ToObject<EternalGoal>(serializer);
                 case "Checklist":
                     return jo.ToObject<ChecklistGoal>(serializer);
+                case "Negative":
+                    return jo.ToObject<NegativeGoal>(serializer);
                 default:
                     throw new Exception("Unknown goal type");
             }

@@ -58,6 +58,9 @@ class ChecklistGoal : Goal{
     {
         
     }
+}
+class NegativeGoal : Goal{
+    public NegativeGoal (string name, string description, int points, bool complete, string type) : base(name, description, points, complete, type){
 
-
+    }
 }
