@@ -28,11 +28,12 @@ class Program
         videos.Add(video2);
         videos.Add(video3);
 
+        Console.Clear();
         for (int i = 0; i < videos.Count; i++)
         {   
             Video video = videos[i];
             video.DisplayInfo();
         }
 
-        }
+    }
 }
