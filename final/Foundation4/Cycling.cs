@@ -1,23 +1,23 @@
 using System;
 
 class Cycling : Activity{
-    private double Speed { get; set; }
+    private double _speed { get; set; }
     public Cycling(string date, double duration, double speed) : base(date, duration){
 
-        Speed = speed;
+        _speed = speed;
     }
     public override double GetDistance(){
 
         double hours = Duration / 60;
-        return Speed * hours;
+        return _speed * hours;
     }
     public override double GetSpeed(){
 
-        return Speed;
+        return _speed;
     }
     public override double GetPace(){
 
-        return 60 / Speed;
+        return 60 / _speed;
     }
     
 }

@@ -2,22 +2,22 @@ using System;
 using System.Runtime.CompilerServices;
 
 class Comment{
-    private string Name;
-    private string Text;
+    private string _name;
+    private string _text;
 
     public Comment(string name, string text){
 
-        Name = name;
-        Text = text;
+        _name = name;
+        _text = text;
     }
 
     public string GetName(){
 
-        return Name;
+        return _name;
     }
 
     public string GetText(){
         
-        return Text;
+        return _text;
     }
 }

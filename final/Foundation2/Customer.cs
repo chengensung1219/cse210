@@ -1,22 +1,22 @@
 using System;
 
 class Customer{
-    private string Name;
-    private Address Address;
+    private string _name;
+    private Address _address;
     public Customer(string name, Address address){
 
-        Name = name;
-        Address = address;
+        _name = name;
+        _address = address;
     }
     public string GetName(){
-        return Name;
+        return _name;
     }
     public Address GetAddress(){
-        return Address;
+        return _address;
     }
     public bool InUSA()
     {
-        return Address.InUSA();
+        return _address.InUSA();
     }
 
 }

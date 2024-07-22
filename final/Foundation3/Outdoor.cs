@@ -2,17 +2,17 @@ using System;
 
 class Outdoor : Event
 {
-    private string Weather { get; set; }
+    private string _weather { get; set; }
     public Outdoor(string title, string description, string date, string time, Address address, string weather) : base(title, description, date, time, address){
         
-        Weather = weather;
+        _weather = weather;
     }
 
     public override void FullDescription(){
 
         Console.WriteLine("Full Description:");
         StandardDescription();
-        Console.WriteLine($"Type: Outdoor Gathering\nWeather: {Weather}\n");
+        Console.WriteLine($"Type: Outdoor Gathering\nWeather: {_weather}\n");
     }
 
     public override void ShortDescription(){

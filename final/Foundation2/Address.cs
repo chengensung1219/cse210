@@ -1,40 +1,40 @@
 using System;
 
 class Address{
-    private string Street;
-    private string City;
-    private string State;
-    private string Country;
-    private int ZipCode;
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _country;
+    private int _zipCode;
     public Address(string street, string city, string state, int zipCode, string country){
 
-        Street = street;
-        City = city;
-        State = state;
-        Country = country;
-        ZipCode = zipCode;
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
+        _zipCode = zipCode;
     }
     public string GetStreet(){
-        return Street;
+        return _street;
     }
     public string GetCity(){
-        return City;
+        return _city;
     }
     public string GetState(){
-        return State;
+        return _state;
     }
     public string GetCountry(){
-        return Country;
+        return _country;
     }
     public int GetZipCode(){
-        return ZipCode;
+        return _zipCode;
     }
     public override string ToString(){
-        return $"{Street} {City}, {State} {ZipCode}, {Country}";
+        return $"{_street} {_city}, {_state} {_zipCode}, {_country}";
     }
 
     public bool InUSA(){
-        if (Country == "USA" || Country == "United States"){
+        if (_country == "USA" || _country == "United States"){
             return true;
         } else {
             return false;

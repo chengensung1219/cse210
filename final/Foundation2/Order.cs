@@ -1,27 +1,27 @@
 using System;
 
 class Order{
-    private List<Product> Products;
-    private Customer Customer;
+    private List<Product> _products;
+    private Customer _customer;
     public Order(Customer customer){
 
-        Customer = customer;
-        Products = new List<Product>();
+        _customer = customer;
+        _products = new List<Product>();
     }
     public void AddProduct(Product product){
-        Products.Add(product);
+        _products.Add(product);
     }
     public double GetTotalPrices(){
 
         double productsPrices = 0;
         int shippingPrices;
-        for (int i = 0; i < Products.Count; i++)
+        for (int i = 0; i < _products.Count; i++)
         {   
-            Product product = Products[i];
+            Product product = _products[i];
             productsPrices += product.GetTotalPrices();
         }
 
-        if (Customer.InUSA() == true){
+        if (_customer.InUSA() == true){
             shippingPrices = 5;
         } else {
             shippingPrices = 35;
@@ -31,16 +31,16 @@ class Order{
 
     public void GetPackingLabel(){
         Console.WriteLine("Packing Label:");
-        for (int i = 0; i < Products.Count; i++)
+        for (int i = 0; i < _products.Count; i++)
         {   
-            Product product = Products[i];
+            Product product = _products[i];
             Console.WriteLine($"{product.GetID()} - {product.GetName()}");
         }
     }
     public void GetShippingLabel(){
         Console.WriteLine("Shipping Label:");
-        Console.WriteLine($"Name: {Customer.GetName()}");
-        Address address = Customer.GetAddress();
+        Console.WriteLine($"Name: {_customer.GetName()}");
+        Address address = _customer.GetAddress();
         Console.WriteLine($"Address: {address.ToString()}");
     }
 }

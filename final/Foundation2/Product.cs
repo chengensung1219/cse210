@@ -1,33 +1,33 @@
 using System;
 
 class Product{
-    private string Name;
-    private string ID;
-    private double UnitPrice;
-    private int Quantity;
+    private string _name;
+    private string _id;
+    private double _unitPrice;
+    private int _quantity;
 
     public Product(string name, string id, double unitPrice, int quantity){
 
-        Name = name;
-        ID = id;
-        UnitPrice = unitPrice;
-        Quantity = quantity;
+        _name = name;
+        _id = id;
+        _unitPrice = unitPrice;
+        _quantity = quantity;
     }
 
     public string GetName(){
-        return Name;
+        return _name;
     }
     public string GetID(){
-        return ID;
+        return _id;
     }
     public double GetUnitPrice(){
-        return UnitPrice;
+        return _unitPrice;
     }
     public int GetQuantity(){
-        return Quantity;
+        return _quantity;
     }
     public double GetTotalPrices(){
-        double totalPrices = UnitPrice * Quantity;
+        double totalPrices = _unitPrice * _quantity;
         return totalPrices;
     }
 }
