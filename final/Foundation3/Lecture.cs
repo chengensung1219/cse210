@@ -13,13 +13,14 @@ class Lecture : Event
 
     public override void FullDescription(){
 
+        Console.WriteLine("Full Description:");
         StandardDescription();
         Console.WriteLine($"Type: Lecture\nSpeaker: {Speaker}\nCapacity: {Capacity}\n");
     }
 
     public override void ShortDescription(){
         
-        StandardDescription();
+        Console.WriteLine("Short Description:");
         Console.WriteLine($"Type: Lecture\nTitle: {Title}\nDate: {Date}\n");
     }
 }

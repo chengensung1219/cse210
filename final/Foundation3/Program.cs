@@ -17,6 +17,7 @@ class Program
         {   
             
             Event activity = events[i];
+            Console.WriteLine("Standard Description:");
             activity.StandardDescription();
             Console.WriteLine(" ");
             activity.FullDescription();

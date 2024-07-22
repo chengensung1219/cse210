@@ -10,12 +10,15 @@ class Reception : Event
     }
 
     public override void FullDescription(){
+
+        Console.WriteLine("Full Description:");
         StandardDescription();
         Console.WriteLine($"Type: Reception\nRSVP Email: {RSVPEmail}\n");
     }
 
     public override void ShortDescription(){
-        StandardDescription();
+
+        Console.WriteLine("Short Description:");
         Console.WriteLine($"Type: Reception\nTitle: {Title}\nDate: {Date}\n");
     }
 }
