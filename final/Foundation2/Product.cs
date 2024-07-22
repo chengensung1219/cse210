@@ -1,10 +1,10 @@
 using System;
 
 class Product{
-    private string Name { get; set; }
-    private string ID { get; set; }
-    private double UnitPrice { get; set; }
-    private int Quantity { get; set; }
+    private string Name;
+    private string ID;
+    private double UnitPrice;
+    private int Quantity;
 
     public Product(string name, string id, double unitPrice, int quantity){
 
